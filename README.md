@@ -2,7 +2,7 @@
 
 ## 📝System Design
 
-![Untitled design](https://github.com/mahmoud-alaa77/Doctor_app/assets/126196219/c86489ad-5dd1-4b2d-837d-d6f2fafe8b1b)
+![widgets](https://github.com/mahmoud-alaa77/Doctor_app/assets/126196219/0bb16ca0-b919-4300-ac5b-897ebf122642)
 
 
 ## Getting Started
