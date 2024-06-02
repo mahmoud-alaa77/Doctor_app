@@ -1,6 +1,9 @@
-# doctor_app
+# ✨Doctor App✨
 
-A new Flutter project.
+## 📝System Design
+
+![Untitled design](https://github.com/mahmoud-alaa77/Doctor_app/assets/126196219/c86489ad-5dd1-4b2d-837d-d6f2fafe8b1b)
+
 
 ## Getting Started
 
