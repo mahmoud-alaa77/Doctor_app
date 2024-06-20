@@ -1,8 +1,10 @@
+import 'package:doctor_app/core/helper/extensions.dart';
+import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/widgets/custom_button.dart';
+import '../../../../core/widgets/custom_text_button.dart';
 import '../widgets/docdoc_logo_and_text.dart';
 import '../widgets/doctor_image_and_text.dart';
 
@@ -35,8 +37,11 @@ class OnBoardingScreen extends StatelessWidget {
                   SizedBox(
                     height: 35.w,
                   ),
-                  const CustomButton(
+                   CustomTextButton(
                     title: "Get Started",
+                    onTap: (){
+                      context.pushNamed(Routes.loginScreen);
+                    },
                   ),
                 ],
               ),

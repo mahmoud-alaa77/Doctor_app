@@ -1,7 +1,8 @@
 import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/features/on_boarding/ui/screens/on_boarding_screen.dart';
-import 'package:doctor_app/features/splash/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../features/login/ui/login_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -10,9 +11,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const OnBoardingScreen(),
         );
-      case Routes.splashScreen:
+      case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (context) => const SplashScreen(),
+          builder: (context) => const LoginScreen(),
         );
       default:
         return MaterialPageRoute(
