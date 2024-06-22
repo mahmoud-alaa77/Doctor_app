@@ -11,6 +11,16 @@ class MyTextStyles{
     fontWeight: FontWeight.w900,
       color: Colors.black
   );
+  static TextStyle font20GrayW500= TextStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.gray
+  );
+  static TextStyle font24DarkBlueW500= TextStyle(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.w500,
+      color:AppColors.darkBlue
+  );
   static TextStyle font12BlackW500= TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
@@ -30,7 +40,7 @@ class MyTextStyles{
   static TextStyle font14BlackBlueW400= TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
-    color: AppColors.blackBlue,
+    color: AppColors.darkBlue,
   );
   static TextStyle font14LightGrayW400= TextStyle(
     fontSize: 14.sp,

@@ -1,24 +1,19 @@
 import 'package:doctor_app/core/helper/spacing.dart';
 import 'package:doctor_app/core/theming/styles.dart';
-import 'package:doctor_app/core/widgets/app_text_form_field.dart';
 import 'package:doctor_app/core/widgets/custom_text_button.dart';
+import 'package:doctor_app/features/login/logic/cubits/login_cubit/login_cubit.dart';
+import 'package:doctor_app/features/login/ui/widgets/email_and_password.dart';
+import 'package:doctor_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/widgets/already_have_an_account.dart';
-import '../../../core/widgets/terms_and_conditions.dart';
+import 'widgets/already_have_an_account.dart';
+import 'widgets/terms_and_conditions.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-final GlobalKey formKey = GlobalKey();
-bool isSecure = true;
-
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,44 +35,28 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: MyTextStyles.font13GrayW400.copyWith(fontSize: 16),
                 ),
                 verticalSpace(30),
-                Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      const AppTextFormField(
-                        hint: "Email",
-                      ),
-                      verticalSpace(16),
-                      AppTextFormField(
-                        hint: "Password",
-                        obscureText: isSecure,
-                        suffixIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isSecure = !isSecure;
-                              });
-                            },
-                            child: Icon(isSecure
-                                ? Icons.visibility
-                                : Icons.visibility_off)),
-                      ),
-                      verticalSpace(16),
-                      Align(
-                          alignment: AlignmentDirectional.centerEnd,
-                          child: Text(
-                            "Forgot Password?",
-                            style: MyTextStyles.font14BlueW400,
-                          )),
-                      verticalSpace(32),
-                      const CustomTextButton(title: "Login"),
-                      verticalSpace(24),
-            
-                      const TermsAndConditions(),
-                      verticalSpace(36),
-            
-                      const AlreadyHaveAnAccount(),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    const EmailAndPassword(),
+                    Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: Text(
+                          "Forgot Password?",
+                          style: MyTextStyles.font14BlueW400,
+                        )),
+                    verticalSpace(32),
+                    CustomTextButton(
+                      title: "Login",
+                      onTap: () {
+                        context.read<LoginCubit>().validateThenDoLogin();
+                      },
+                    ),
+                    verticalSpace(24),
+                    const TermsAndConditions(),
+                    verticalSpace(36),
+                    const AlreadyHaveAnAccount(),
+                    const LoginBlocListener(),
+                  ],
                 )
               ],
             ),
