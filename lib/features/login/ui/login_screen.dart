@@ -2,13 +2,13 @@ import 'package:doctor_app/core/helper/spacing.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/custom_text_button.dart';
 import 'package:doctor_app/features/login/logic/cubits/login_cubit/login_cubit.dart';
+import 'package:doctor_app/features/login/ui/widgets/don\'t_have_an_account.dart';
 import 'package:doctor_app/features/login/ui/widgets/email_and_password.dart';
 import 'package:doctor_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/already_have_an_account.dart';
 import 'widgets/terms_and_conditions.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(24),
                     const TermsAndConditions(),
                     verticalSpace(36),
-                    const AlreadyHaveAnAccount(),
+                    const DoNotHaveAnAccount(),
                     const LoginBlocListener(),
                   ],
                 )

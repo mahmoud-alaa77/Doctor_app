@@ -36,7 +36,9 @@ class ServerFailure extends Failure {
     } else if (statusCode == 500) {
       return ServerFailure("Internal Server Error, Please Try Later");
     } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response['message']);
+      return ServerFailure("This account hasn't exist");
+    } else if (statusCode == 422) {
+      return ServerFailure("Email or phone has already been taken");
     } else {
       return ServerFailure("Opps There was an error Please Try Again");
     }
