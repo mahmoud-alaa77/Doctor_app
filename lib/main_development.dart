@@ -9,6 +9,7 @@ import 'core/helper/my_bloc_obsever.dart';
 
 void main() async {
   setUpGetIt();
+
   // To fix texts being hidden bug in flutter_screenutil in release mode.
   await ScreenUtil.ensureScreenSize();
   Bloc.observer = SimpleBlocObserver();
