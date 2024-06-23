@@ -7,47 +7,38 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
-
-
   SignUpCubit(this._signUpRepo) : super(SignUpInitial());
-final SignUpRepo _signUpRepo;
+  final SignUpRepo _signUpRepo;
 
-  final formKey=GlobalKey<FormState>();
-  TextEditingController emailController=TextEditingController();
-  TextEditingController nameController=TextEditingController();
-  TextEditingController phoneController=TextEditingController();
-  TextEditingController passwordController=TextEditingController();
-  TextEditingController passwordConfirmationController=TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmationController =
+      TextEditingController();
 
-
-  void emitSignUp(SignUpRequestBody requestBody)async{
-
+  void emitSignUp(SignUpRequestBody requestBody) async {
     emit(SignUpLoading());
 
-    final response=await _signUpRepo.signUp(requestBody);
+    final response = await _signUpRepo.signUp(requestBody);
 
     response.fold((failure) {
       emit(SignUpError(errorMessage: failure.message));
-  }, (responseBody) {
+    }, (responseBody) {
       emit(SignUpSuccess(signUpResponseBody: responseBody));
-  });
+    });
+  }
 
-
-}
-
-void validateAndSignUp(){
-    if(formKey.currentState!.validate()){
-      emitSignUp(
-    SignUpRequestBody(
-        name: nameController.text,
-        email: emailController.text,
-        password: passwordController.text,
-        passwordConfirmation: passwordConfirmationController.text,
-        gender: 0,
-        phone: phoneController.text
-    )
-      );
+  void validateAndSignUp() {
+    if (formKey.currentState!.validate()) {
+      emitSignUp(SignUpRequestBody(
+          name: nameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+          passwordConfirmation: passwordConfirmationController.text,
+          gender: 0,
+          phone: phoneController.text));
     }
-}
-
+  }
 }
