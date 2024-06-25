@@ -4,10 +4,17 @@ default_platform(:android)
 platform :android do
   desc "Runs all the tests"
   lane :firebase_distarbution do
-
+    sh "flutter clean"
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
     firebase_app_distribution(
-      app: "1:123456789:android:abcd1234",
-      groups: "qa-team, trusted-testers"
+      app: "1:995308568836:android:2a33eca9609cbd739b9051",
+      firebase_cli_token: "1//03qg_OTfGb9NrCgYIARAAGAMSNwF-L9Ir4UH7wyLh_ny-f2txSbBExjGVnPt7nUJ57oN0jmye2YjXcTVWkp-HeAaXjqCoD6YxyQ8",
+      android_artifact_type: "APK",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+      groups: "qa-team, trusted-testers",
+      testers: "mahmod01007035909@gmail.com",
+      release_notes: "first release with fastlane"
+
     )
   end
 
