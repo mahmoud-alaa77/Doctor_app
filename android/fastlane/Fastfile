@@ -1,0 +1,15 @@
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :firebase_distarbution do
+
+    firebase_app_distribution(
+      app: "1:123456789:android:abcd1234",
+      groups: "qa-team, trusted-testers"
+    )
+  end
+
+  
+end
