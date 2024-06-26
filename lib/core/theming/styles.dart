@@ -55,6 +55,12 @@ static TextStyle font18DarkBlueW700= TextStyle(
     color: AppColors.darkBlue,
   );
 
+static TextStyle font18WhiteW500= TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+
   static TextStyle font14LightGrayW400= TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
