@@ -1,11 +1,11 @@
-import 'package:doctor_app/core/helper/spacing.dart';
-import 'package:doctor_app/core/theming/app_colors.dart';
-import 'package:doctor_app/core/theming/styles.dart';
+import 'package:doctor_app/features/home/data/models/specialization_response_model.dart';
+import 'package:doctor_app/features/home/ui/widgets/doctors_specialization_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsSpecialityListView extends StatelessWidget {
-  const DoctorsSpecialityListView({super.key});
+  final List<SpecializationData?> specializationDataList;
+  const DoctorsSpecialityListView({super.key, required this.specializationDataList});
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +13,12 @@ class DoctorsSpecialityListView extends StatelessWidget {
         height: 100.h,
         width: double.infinity,
         child: ListView.builder(
-          itemBuilder: (context, index) => Padding(
-            padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 16.w),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  backgroundColor: AppColors.lighterGray,
-                  radius: 28.w,
-                  child: Image.asset(
-                    "assets/images/genral_doctor_icon.png",
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                verticalSpace(2),
-                Text("General", style: MyTextStyles.font12BlackW500),
-              ],
-            ),
+          itemBuilder: (context, index) => DoctorsSpecializationItem(
+            imageUrl: "https://cdn-icons-png.freepik.com/256/921/921059.png?ga=GA1.1.1421869893.1706208542&semt=ais_hybrid",
+            title:  specializationDataList[index]!.name,
+            index: index,
           ),
-          itemCount: 10,
+          itemCount: specializationDataList.length,
           scrollDirection: Axis.horizontal,
         ));
   }
