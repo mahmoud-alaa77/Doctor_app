@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(16),
               const DoctorsSpecialitySeeAll(),
               verticalSpace(12),
-              // ignore: prefer_const_constructors
               const SpecializationAndDoctorsBlocBuilder(),
             ],
           ),

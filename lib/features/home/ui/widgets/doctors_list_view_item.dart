@@ -36,8 +36,7 @@ class DoctorsListViewItem extends StatelessWidget {
                 ),
                 verticalSpace(5),
                 Text(
-                 '${doctorModel?.degree} || ${doctorModel?.phone}'
-                 ,
+                  '${doctorModel?.degree} || ${doctorModel?.phone}',
                   style: MyTextStyles.font12GrayW400,
                 ),
                 verticalSpace(5),
