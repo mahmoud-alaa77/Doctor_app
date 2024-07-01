@@ -3,7 +3,7 @@ import 'package:doctor_app/features/home/data/models/specialization_response_mod
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/theming/styles.dart';
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctors? doctorModel;
